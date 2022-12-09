@@ -1,6 +1,16 @@
 #!/bin/bash
 
+if (($# == 0 )); then
+    reps=10
+elif (($# < 1 )); then
+    echo Usage: '[number of repetitions]'
+else
+    reps=$1
+fi
+
 # create empty files for test results
+> averages.txt
+cd results # move to results directory
 
 > java_results.txt
 > python_results.txt
@@ -8,16 +18,35 @@
 > js_results.txt
 
 
-for ((  i = 0; i < 15; i++ ))
+cd ../tests
+
+# check if we need to recompile
+if !(java Riemann &> /dev/null); then
+    javac Riemann.java
+fi
+
+if !(./test_riemann &> /dev/null); then
+    gcc ./test_riemann.c ./test_riemann
+fi
+
+for ((  i = 0; i < reps; i++ ))
 do
-    echo $(java Riemann) >> java_results.txt
-    echo $(python3 Python_Riemann.py) >> python_results.txt
-    echo $(./test_riemann) >> c_results.txt
-    echo $(node jsRiemannSum.js) >> js_results.txt
+
+    echo $(java Riemann) >> ../results/java_results.txt
+    echo $(python3 Python_Riemann.py) >> ../results/python_results.txt
+    echo $(./test_riemann) >> ../results/c_results.txt
+    echo $(node jsRiemannSum.js) >> ../results/js_results.txt
     
 done
-# call time calculator
-results=$(bash c_run_code.sh get_results.c)
 
-echo $results > results.txt
-echo $results
+cd ..
+pwd
+# call time calculator
+
+bash c_run_code.sh get_results.c $1 > results.txt
+
+cat results.txt
+
+if !(python3 plot_results.py &> /dev/null); then
+    echo "You may not have numpy or matplot. Run 'bash install_dependencies.sh' to install."
+fi
