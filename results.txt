@@ -1,10 +1,4 @@
-100
-./get_results 100
-state
-state
-state
-state
-js average time:  0.008964 js varience:  0.000000 
-java average time:  0.003460 java varience:  -0.000000
-Python average time:  0.025213 Python varience:  0.000000
-C average time:  0.003869 C varience:  -0.000000
+js average time:  0.063705 js varience:  0.000000 
+java average time:  0.003700 java varience:  -0.000000
+Python average time:  0.268118 Python varience:  0.000000
+C average time:  0.004047 C varience:  0.000000

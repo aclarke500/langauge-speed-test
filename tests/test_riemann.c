@@ -7,7 +7,7 @@ double example_function(double x) { return x * x * x + 4.0; }
 
 double left_riemann_sum(double a, double b) {
     // we need to define the width of the rectangles
-    double width = 0.001;
+    double width = 0.0001;
     double sum = 0;
     double position = a;  // we start at a double a
     double val = 0;

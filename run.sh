@@ -2,10 +2,12 @@
 
 if (($# == 0 )); then
     reps=10
+    violated=1
 elif (($# < 1 )); then
     echo Usage: '[number of repetitions]'
 else
     reps=$1
+    violated=0
 fi
 
 # create empty files for test results
@@ -40,10 +42,10 @@ do
 done
 
 cd ..
-pwd
+
 # call time calculator
 
-bash c_run_code.sh get_results.c $1 > results.txt
+bash c_run_code.sh get_results.c $reps > results.txt
 
 cat results.txt
 

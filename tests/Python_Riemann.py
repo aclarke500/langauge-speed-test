@@ -1,7 +1,7 @@
 import time
 
 def riemann(a, b):
-    width = 0.001
+    width = 0.0001
     sum = 0
     position = a  # we start at a 
     val = 0

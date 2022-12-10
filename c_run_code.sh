@@ -15,7 +15,7 @@ compiled_file=${C_file%.*}
 #compile file
 gcc $C_file -o $compiled_file
 #run it
-echo ${@:2}
 
-echo "./$compiled_file "${@:2}""
+
+
 ./$compiled_file "${@:2}"

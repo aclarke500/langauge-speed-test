@@ -24,7 +24,6 @@ double average_time(char file[]) {
  */
 void arr_write(FILE *f, size_t arr_sz, const double *arr) {
     for (int i = 0; i < arr_sz; i++) {
-        puts("state");
         fprintf(f, "%f\n", arr[i]);
     }
 }
@@ -63,10 +62,6 @@ int main(int argc, char *argv[]) {
     double python_var = time_varience(python_results);
     double java_var = time_varience(java_results);
     double js_var = time_varience(js_results);
-
-    // printf("%s %f \n%s %f \n%s %f \n%s %f \n", "Average C run time: ",
-    // c_average, "Average Python run time: ", python_average, "Average Java run
-    // time: ", java_average, "Average JavaScript run time: ", js_average);
 
     // make array of length 4
     double averages[4] = {c_average, python_average, java_average, js_average};

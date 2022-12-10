@@ -1,5 +1,5 @@
 function riemannSum(a, b) {
-    let width = 0.001;
+    let width = 0.0001;
     let sum = 0;
     let position = a  // we start at a
     let val = 0;
