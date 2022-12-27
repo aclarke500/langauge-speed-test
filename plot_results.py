@@ -12,7 +12,7 @@ with open('averages.txt') as file:
             averages.append(line)
 
 
-# change data from string to int
+# change data from string to number
 averages = list(map(float, averages))
 
 
