@@ -1,6 +1,8 @@
 # langauge-speed-test
+Usage : bash run.sh [optional : number of test repetitions]
+
 Compares Python, C, Java, and Javascript run times in computing a simple Riemann sum. Is organized through a bash script.
- Usage : bash run.sh [optional : number of test repetitions]
+ 
  
  
  Math Content: 
